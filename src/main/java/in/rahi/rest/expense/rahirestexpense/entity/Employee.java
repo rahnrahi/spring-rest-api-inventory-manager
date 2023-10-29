@@ -11,6 +11,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -27,12 +28,14 @@ public class Employee extends BaseEnitity{
     private UUID EmpId;
 
     @JsonProperty("full_name")
+    @NotBlank(message = "Name is mandatory")
     private String Name;
 
     private String Age;
 
     private String Location;
 
+    @NotBlank(message = "Email is mandatory")
     private String Email;
 
     private String Department;

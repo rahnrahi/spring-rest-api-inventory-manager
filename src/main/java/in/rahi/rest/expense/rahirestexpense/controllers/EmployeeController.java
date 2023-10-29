@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import in.rahi.rest.expense.rahirestexpense.entity.Employee;
 import in.rahi.rest.expense.rahirestexpense.service.EmployeeServiceImpl;
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/employees")
@@ -39,7 +40,7 @@ public class EmployeeController {
     }
 
     @PostMapping()
-    public Employee saveEmployee(@RequestBody Employee employeeModel){
+    public Employee saveEmployee(@Valid @RequestBody Employee employeeModel){
         return employeeservice.saveEmployee(employeeModel);
     }
     @PutMapping("{empId}")
