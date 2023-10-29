@@ -12,32 +12,30 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 
-@Getter
-@Setter
-@ToString
 @Entity
-@Table(name = "exp_employee")
+@Table(name = "inv_employee")
+@Data
+@EqualsAndHashCode(callSuper=false, of = "empId")
 public class Employee extends BaseEnitity{
     @Id
     @GeneratedValue
     @JdbcTypeCode(SqlTypes.VARCHAR)
-    private UUID EmpId;
+    private UUID empId;
 
     @JsonProperty("full_name")
     @NotBlank(message = "Name is mandatory")
-    private String Name;
+    private String name;
 
-    private String Age;
+    private String age;
 
-    private String Location;
+    private String location;
 
     @NotBlank(message = "Email is mandatory")
-    private String Email;
+    private String email;
 
-    private String Department;
+    private String department;
 
 }
